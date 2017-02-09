@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <com.aries.ui.view.title.TitleBarView
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="#343740"
+        app:title_immersible="true"
+        app:title_leftText="左边文字"
+        app:title_leftTextDrawable="@mipmap/ic_back_left"
+        app:title_titleMainText="主标题"
+        app:title_titleMainTextSize="16dp"
+        app:title_titleSubText="副标题"/>
+
+</LinearLayout>
