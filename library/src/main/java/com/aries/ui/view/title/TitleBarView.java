@@ -22,7 +22,7 @@ import android.widget.TextView;
  * Function:定制标题栏
  * Desc:
  */
-public class TitleBarView extends LinearLayout implements View.OnClickListener {
+public class TitleBarView extends LinearLayout {
 
     private static final int DEFAULT_TEXT_COLOR = 0XFFFFFFFF;
     private static final int DEFAULT_TEXT_BG_COLOR = 0X00000000;
@@ -630,7 +630,7 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
      */
     private View inflateAction(Action action) {
         View view = null;
-        Object obj = action.getContent();
+        Object obj = action.getData();
         if (obj == null)
             return null;
         if (obj instanceof View) {
@@ -654,27 +654,92 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
         }
         view.setPadding(mActionPadding, 0, mActionPadding, 0);
         view.setTag(action);
-        view.setOnClickListener(this);
+        view.setOnClickListener(action.getOnClickListener());
         return view;
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getTag() instanceof Action) {
-            Action action = (Action) v.getTag();
-            action.onClink(v);
-        }
-
-    }
 
     /**
      * 添加View以及相应的动作接口
      */
     public interface Action<T> {
+        T getData();
 
-        T getContent();
+        OnClickListener getOnClickListener();
+    }
 
-        void onClink(View view);
+    public class ImageAction implements Action<Integer> {
+
+        private int mDrawable;
+        private OnClickListener onClickListener;
+
+        public ImageAction(int mDrawable, OnClickListener onClickListener) {
+            this.mDrawable = mDrawable;
+            this.onClickListener = onClickListener;
+        }
+
+        public ImageAction(int mDrawable) {
+            this.mDrawable = mDrawable;
+        }
+
+        @Override
+        public Integer getData() {
+            return mDrawable;
+        }
+
+        @Override
+        public OnClickListener getOnClickListener() {
+            return onClickListener;
+        }
+
+    }
+
+    public class TextAction implements Action<String> {
+
+        private String mText;
+        private OnClickListener onClickListener;
+
+        public TextAction(String mText, OnClickListener onClickListener) {
+            this.mText = mText;
+            this.onClickListener = onClickListener;
+        }
+
+        public TextAction(int mText, OnClickListener onClickListener) {
+            this.mText = getResources().getString(mText);
+            this.onClickListener = onClickListener;
+        }
+
+        @Override
+        public String getData() {
+            return mText;
+        }
+
+        @Override
+        public OnClickListener getOnClickListener() {
+            return onClickListener;
+        }
+
+    }
+
+    public class ViewAction implements Action<View> {
+
+        private View mView;
+        private OnClickListener onClickListener;
+
+        public ViewAction(View mView, OnClickListener onClickListener) {
+            this.onClickListener = onClickListener;
+        }
+
+        @Override
+        public View getData() {
+            return mView;
+        }
+
+        @Override
+        public OnClickListener getOnClickListener() {
+            return onClickListener;
+        }
+
     }
 
     /**

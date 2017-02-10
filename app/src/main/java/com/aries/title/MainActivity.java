@@ -12,7 +12,7 @@ import com.aries.ui.view.title.TitleBarView;
  * Function:
  * Desc:
  */
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity {
 
 
     private TitleBarView titleBar;
@@ -27,23 +27,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private void initView() {
         titleBar = (TitleBarView) findViewById(R.id.titleBar);
         titleBar.setImmersible(this, true);
-        titleBar.addRightAction(new TitleBarView.Action<Integer>() {
+        titleBar.addRightAction(titleBar.new ImageAction(R.drawable.ic_arrow_right, new View.OnClickListener() {
             @Override
-            public Integer getContent() {
-                return R.mipmap.ic_launcher;
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "点击", Toast.LENGTH_SHORT).show();
             }
+        }));
 
-            @Override
-            public void onClink(View view) {
-                Toast.makeText(MainActivity.this, "点击了", Toast.LENGTH_SHORT).show();
-            }
-        },0);
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        Toast.makeText(this, "OnClick", Toast.LENGTH_SHORT).show();
     }
 
 }
