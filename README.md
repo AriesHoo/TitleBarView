@@ -1,8 +1,8 @@
-#UIActionView
+#TitleBarView
 --------------------------
 ####一、简介：
 
-一个仿iOS ActionView，支持文本及颜色设置
+一个支持沉浸式 TitleBarView，支持文xml及java代码设置各种属性
 
 **1.1 Gradle集成**
 
@@ -17,9 +17,9 @@ allprojects {
 
 ```
 dependencies {
-     compile 'com.github.AriesHoo:UIActionSheetView:1.0.0'
+     compile 'com.github.AriesHoo:TitleBarView:1.0.0'
 }
 ```
 
 ####二、截图预览
-![](https://github.com/AriesHoo/UIActionSheetView/blob/master/screenshot/00.png)
+![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/00.png)
