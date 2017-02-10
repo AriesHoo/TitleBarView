@@ -17,8 +17,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import static android.R.attr.drawablePadding;
-
 /**
  * Created: AriesHoo on 2017-02-09 09:42
  * Function:定制标题栏
@@ -57,7 +55,7 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
      * 下方分割线
      */
     private View mDividerView;
-
+    private TextView mRightTv;
     /**
      * 状态栏高度
      */
@@ -87,6 +85,13 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
     private int mTitleSubTextBackgroundColor;
     private int mTitleSubTextBackgroundResource;
 
+    private int mRightTextSize;
+    private int mRightTextColor;
+    private int mRightTextBackgroundColor;
+    private int mRightDrawable;
+    private int mRightDrawablePadding;
+    private int mRightTextBackgroundResource;
+
     private int mActionTextSize;
     private int mActionTextColor;
     private int mActionTextBackgroundColor;
@@ -103,6 +108,7 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
     private String mTitleMainText;
     private String mTitleSubText;
     private String mLeftText;
+    private String mRightText;
 
 
     public TitleBarView(Context context) {
@@ -121,9 +127,9 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
 
     private void initAttributes(Context context, AttributeSet attrs) {
         TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.TitleBarView);
-        mPaddingValue = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_outPadding, dip2px(context, 8));
+        mPaddingValue = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_outPadding, dip2px(context, 6));
         mDividerHeight = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_dividerHeight, 0);
-        mActionPadding = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_actionPadding, dip2px(context, 5));
+        mActionPadding = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_actionPadding, dip2px(context, 2));
         immersible = ta.getBoolean(R.styleable.TitleBarView_title_immersible, false);
         isTitleFakeBold = ta.getBoolean(R.styleable.TitleBarView_title_titleMainTextFakeBold, false);
 
@@ -133,7 +139,7 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
         mLeftTextBackgroundResource = ta.getResourceId(R.styleable.TitleBarView_title_leftTextBackgroundResource, -1);
         mLeftTextBackgroundColor = ta.getColor(R.styleable.TitleBarView_title_leftTextBackgroundColor, DEFAULT_TEXT_BG_COLOR);
         mLeftDrawable = ta.getResourceId(R.styleable.TitleBarView_title_leftTextDrawable, -1);
-        mLeftDrawablePadding = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_leftTextDrawablePadding, dip2px(context, 2));
+        mLeftDrawablePadding = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_leftTextDrawablePadding, 0);
 
         mTitleMainText = ta.getString(R.styleable.TitleBarView_title_titleMainText);
         mTitleMainTextSize = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_titleMainTextSize, sp2px(context, DEFAULT_TEXT_SIZE));
@@ -146,6 +152,14 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
         mTitleSubTextColor = ta.getColor(R.styleable.TitleBarView_title_titleSubTextColor, DEFAULT_TEXT_COLOR);
         mTitleSubTextBackgroundColor = ta.getColor(R.styleable.TitleBarView_title_titleSubTextBackgroundColor, DEFAULT_TEXT_BG_COLOR);
         mTitleSubTextBackgroundResource = ta.getResourceId(R.styleable.TitleBarView_title_titleSubTextBackgroundResource, -1);
+
+        mRightText = ta.getString(R.styleable.TitleBarView_title_rightText);
+        mRightTextSize = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_rightTextSize, sp2px(context, DEFAULT_TEXT_SIZE));
+        mRightTextColor = ta.getColor(R.styleable.TitleBarView_title_rightTextColor, DEFAULT_TEXT_COLOR);
+        mRightTextBackgroundResource = ta.getResourceId(R.styleable.TitleBarView_title_rightTextBackgroundResource, -1);
+        mRightTextBackgroundColor = ta.getColor(R.styleable.TitleBarView_title_rightTextBackgroundColor, DEFAULT_TEXT_BG_COLOR);
+        mRightDrawable = ta.getResourceId(R.styleable.TitleBarView_title_rightTextDrawable, -1);
+        mRightDrawablePadding = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_rightTextDrawablePadding, 0);
 
         mActionTextSize = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_actionTextSize, sp2px(context, DEFAULT_TEXT_SIZE));
         mActionTextColor = ta.getColor(R.styleable.TitleBarView_title_actionTextColor, DEFAULT_TEXT_COLOR);
@@ -179,7 +193,7 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
 
         mLeftTv = new TextView(context);
         mLeftTv.setGravity(Gravity.CENTER);
-        mLeftTv.setText(mLeftText);
+        setLeftText(mLeftText);
         mLeftTv.setSingleLine();
         mLeftTv.setTextSize(px2sp(context, mLeftTextSize));
         mLeftTv.setTextColor(mLeftTextColor);
@@ -209,12 +223,28 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
         mSubTitleText.setSingleLine();
         setTitleSubText(mTitleSubText);
         mSubTitleText.setGravity(Gravity.CENTER);
-        mSubTitleText.setTextColor(Color.WHITE);
+        mSubTitleText.setTextColor(mTitleSubTextColor);
+        mSubTitleText.setBackgroundColor(mTitleSubTextBackgroundColor);
         mSubTitleText.setEllipsize(TextUtils.TruncateAt.END);
         if (mTitleSubTextBackgroundResource != -1) {
             mSubTitleText.setBackgroundResource(mTitleSubTextBackgroundResource);
         }
         mCenterLayout.addView(mSubTitleText);
+
+        mRightTv = new TextView(context);
+        mRightTv.setGravity(Gravity.CENTER);
+        setRightText(mRightText);
+        mRightTv.setSingleLine();
+        mRightTv.setTextSize(px2sp(context, mRightTextSize));
+        mRightTv.setTextColor(mRightTextColor);
+        mRightTv.setBackgroundColor(mRightTextBackgroundColor);
+        if (mRightTextBackgroundResource != -1) {
+            mRightTv.setBackgroundResource(mRightTextBackgroundResource);
+        }
+        if (mRightDrawable != -1) {
+            setRightTextDrawable(mRightDrawable, mRightDrawablePadding);
+        }
+        mRightLayout.addView(mRightTv);
 
         LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
         LayoutParams dividerParams = new LayoutParams(LayoutParams.MATCH_PARENT, mDividerHeight);
@@ -351,7 +381,7 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
      */
     public void setLeftTextDrawable(int id, int drawablePadding) {
         mLeftTv.setCompoundDrawablesWithIntrinsicBounds(id, 0, 0, 0);
-        mLeftTv.setCompoundDrawablePadding(dip2px(getContext(), drawablePadding));
+        setLeftTextDrawablePadding(drawablePadding);
     }
 
     public void setLeftTextDrawablePadding(int drawablePadding) {
@@ -360,8 +390,7 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
     }
 
     public void setLeftTextDrawable(int id) {
-        mLeftTv.setCompoundDrawablesWithIntrinsicBounds(id, 0, 0, 0);
-        mLeftTv.setCompoundDrawablePadding(dip2px(getContext(), drawablePadding));
+        setLeftTextDrawable(id, mLeftDrawablePadding);
     }
 
     public void setLeftTextPadding(int left, int top, int right, int bottom) {
@@ -480,6 +509,91 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
         mSubTitleText.setBackgroundResource(id);
     }
 
+
+    public void setRightText(CharSequence title) {
+        mRightTv.setText(title);
+    }
+
+    public void setRightText(int id) {
+        mRightTv.setText(id);
+    }
+
+    public void setRightTextSize(int unit, float size) {
+        mRightTv.setTextSize(unit, size);
+    }
+
+    public void setRightTextSize(float size) {
+        mRightTv.setTextSize(size);
+    }
+
+    public void setRightTextColor(int id) {
+        mRightTv.setTextColor(id);
+    }
+
+    public void setRightTextColor(ColorStateList color) {
+        try {
+            mRightTv.setTextColor(color);
+        } catch (Exception e) {
+        }
+    }
+
+    public void setRightTextBackgroundColor(int color) {
+        mRightTv.setBackgroundColor(color);
+    }
+
+    public void setRightTextBackgroundResource(int id) {
+        mRightTv.setBackgroundResource(id);
+    }
+
+    /**
+     * 右边文本添加图片
+     *
+     * @param id 资源id
+     */
+    public void setRightTextDrawable(int id, int drawablePadding) {
+        mRightTv.setCompoundDrawablesWithIntrinsicBounds(0, 0, id, 0);
+        setRightTextDrawablePadding(drawablePadding);
+    }
+
+    public void setRightTextDrawablePadding(int drawablePadding) {
+        this.mRightDrawablePadding = drawablePadding;
+        mRightTv.setCompoundDrawablePadding(dip2px(getContext(), mRightDrawablePadding));
+    }
+
+    public void setRightTextDrawable(int id) {
+        setRightTextDrawable(id, mRightDrawablePadding);
+    }
+
+    public void setRightTextPadding(int left, int top, int right, int bottom) {
+        mRightTv.setPadding(left, top, right, bottom);
+    }
+
+    public void setOnRightTextClickListener(OnClickListener l) {
+        mRightTv.setOnClickListener(l);
+    }
+
+    public void setRightVisible(boolean visible) {
+        mRightTv.setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+
+    /**
+     * 在标题栏右边添加action
+     *
+     * @param action
+     * @param position 添加的位置
+     */
+    public View addRightAction(Action action, int position) {
+        View view = inflateAction(action);
+        mRightLayout.addView(view, position);
+        return view;
+    }
+
+    public View addRightAction(Action action) {
+        View view = inflateAction(action);
+        mRightLayout.addView(view);
+        return view;
+    }
+
     /**
      * 设置下方分割线
      *
@@ -544,24 +658,6 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
         return view;
     }
 
-    /**
-     * 在标题栏右边添加action
-     *
-     * @param action
-     * @param position 添加的位置
-     */
-    public View addRightAction(Action action, int position) {
-        View view = inflateAction(action);
-        mRightLayout.addView(view, position);
-        return view;
-    }
-
-    public View addRightAction(Action action) {
-        View view = inflateAction(action);
-        mRightLayout.addView(view);
-        return view;
-    }
-
     @Override
     public void onClick(View v) {
         if (v.getTag() instanceof Action) {
@@ -570,7 +666,6 @@ public class TitleBarView extends LinearLayout implements View.OnClickListener {
         }
 
     }
-
 
     /**
      * 添加View以及相应的动作接口

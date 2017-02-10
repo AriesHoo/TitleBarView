@@ -37,7 +37,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
             public void onClink(View view) {
                 Toast.makeText(MainActivity.this, "点击了", Toast.LENGTH_SHORT).show();
             }
-        });
+        },0);
 
     }
 

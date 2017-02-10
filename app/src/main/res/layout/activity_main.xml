@@ -11,10 +11,13 @@
         android:layout_height="45dp"
         android:background="#343740"
         app:title_immersible="true"
-        app:title_leftText="左边文字"
-        app:title_leftTextDrawable="@mipmap/ic_back_left"
+        app:title_leftText="左边"
+        app:title_leftTextDrawable="@drawable/ic_arrow_left"
+        app:title_rightText="右边"
+        app:title_rightTextDrawable="@drawable/ic_arrow_right"
         app:title_titleMainText="主标题"
         app:title_titleMainTextSize="16dp"
+        app:title_titleSubTextSize="8dp"
         app:title_titleSubText="副标题"/>
 
 </LinearLayout>
