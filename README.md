@@ -25,4 +25,4 @@ dependencies {
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/00.png)
 
 ####三、鸣谢
-1、[titlebar](https://github.com/bacy/titlebar） 
+1、[titlebar](https://github.com/bacy/titlebar)
