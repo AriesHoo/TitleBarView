@@ -255,15 +255,20 @@ public class TitleBarView extends LinearLayout {
         addView(mDividerView, dividerParams);
     }
 
+    public void setImmersible(Activity activity, boolean immersible) {
+        setImmersible(activity, immersible, true);
+    }
+
     /**
      * 设置沉浸式状态栏，4.4以上系统支持
      *
-     * @param immersible
      * @param activity
+     * @param immersible
+     * @param isPlusStatusHeight 是否增加statusBar 高度
      */
-    public void setImmersible(Activity activity, boolean immersible) {
+    public void setImmersible(Activity activity, boolean immersible, boolean isPlusStatusHeight) {
         this.immersible = immersible;
-        if (immersible && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (immersible && isPlusStatusHeight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             mStatusBarHeight = getStatusBarHeight();
         } else {
             mStatusBarHeight = 0;
