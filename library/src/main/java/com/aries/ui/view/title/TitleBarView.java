@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created: AriesHoo on 2017-02-09 09:42
@@ -100,7 +101,7 @@ public class TitleBarView extends LinearLayout {
     /**
      * 支持沉浸式状态栏
      */
-    private boolean immersible;
+    private boolean immersible = false;
 
     private boolean isTitleFakeBold;
 
@@ -267,6 +268,10 @@ public class TitleBarView extends LinearLayout {
      * @param isPlusStatusHeight 是否增加statusBar 高度
      */
     public void setImmersible(Activity activity, boolean immersible, boolean isPlusStatusHeight) {
+        if (this.immersible == immersible) {
+            return;
+        }
+        Toast.makeText(activity, "设置状态栏", Toast.LENGTH_SHORT).show();
         this.immersible = immersible;
         if (immersible && isPlusStatusHeight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             mStatusBarHeight = getStatusBarHeight();
@@ -301,6 +306,7 @@ public class TitleBarView extends LinearLayout {
                 }
             }
         }
+        invalidate();
     }
 
     @Override
