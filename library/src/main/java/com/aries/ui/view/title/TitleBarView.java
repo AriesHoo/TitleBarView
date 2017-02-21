@@ -16,7 +16,6 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Created: AriesHoo on 2017-02-09 09:42
@@ -271,7 +270,6 @@ public class TitleBarView extends LinearLayout {
         if (this.immersible == immersible) {
             return;
         }
-        Toast.makeText(activity, "设置状态栏", Toast.LENGTH_SHORT).show();
         this.immersible = immersible;
         if (immersible && isPlusStatusHeight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             mStatusBarHeight = getStatusBarHeight();
