@@ -20,10 +20,17 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        titleBar = (TitleBarView) findViewById(R.id.titleBar);
         initView();
     }
 
     private void initView() {
+        titleBar.setOnLeftTextClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "点击左边", Toast.LENGTH_SHORT).show();
+            }
+        });
         titleBar.addRightAction(titleBar.new ImageAction(R.drawable.ic_arrow_right, new View.OnClickListener() {
             @Override
             public void onClick(View v) {

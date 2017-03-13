@@ -178,6 +178,9 @@ public class TitleBarView extends LinearLayout {
 
 
     private void initView(Context context) {
+        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
+        LayoutParams dividerParams = new LayoutParams(LayoutParams.MATCH_PARENT, mDividerHeight);
+
         mLeftLayout = new LinearLayout(context);
         mCenterLayout = new LinearLayout(context);
         mRightLayout = new LinearLayout(context);
@@ -204,7 +207,7 @@ public class TitleBarView extends LinearLayout {
         if (mLeftDrawable != -1) {
             setLeftTextDrawable(mLeftDrawable, mLeftDrawablePadding);
         }
-        mLeftLayout.addView(mLeftTv);
+        mLeftLayout.addView(mLeftTv, params);
 
         mTitleTv = new TextView(context);
         mTitleTv.setGravity(Gravity.CENTER);
@@ -244,10 +247,8 @@ public class TitleBarView extends LinearLayout {
         if (mRightDrawable != -1) {
             setRightTextDrawable(mRightDrawable, mRightDrawablePadding);
         }
-        mRightLayout.addView(mRightTv);
+        mRightLayout.addView(mRightTv, params);
 
-        LayoutParams params = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
-        LayoutParams dividerParams = new LayoutParams(LayoutParams.MATCH_PARENT, mDividerHeight);
 
         addView(mLeftLayout, params);//添加左边容器
         addView(mCenterLayout, params);//添加中间容器
