@@ -21,6 +21,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         titleBar = (TitleBarView) findViewById(R.id.titleBar);
+        titleBar.setImmersible(MainActivity.this,true);
         initView();
     }
 
