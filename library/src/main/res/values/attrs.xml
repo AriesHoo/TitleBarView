@@ -6,7 +6,7 @@
         <attr name="title_actionPadding" format="dimension"/>
         <attr name="title_immersible" format="boolean"/>
 
-        <attr name="title_dividerColor" format="color"/>
+        <attr name="title_dividerColor" format="color|reference"/>
         <attr name="title_dividerResource" format="reference"/>
         <attr name="title_dividerHeight" format="dimension"/>
         <attr name="title_dividerVisible" format="boolean"/>
