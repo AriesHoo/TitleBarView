@@ -19,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
+
 /**
  * Created: AriesHoo on 2017-02-09 09:42
  * Function:定制标题栏
@@ -121,7 +122,7 @@ public class TitleBarView extends FrameLayout {
     /**
      * 是否添加主标题
      */
-    private boolean isAddTitileMain = false;
+    private boolean isAddTitleMain = false;
     /**
      * 是否设置副标题
      */
@@ -150,7 +151,7 @@ public class TitleBarView extends FrameLayout {
 
         mDividerColor = ta.getColor(R.styleable.TitleBarView_title_dividerColor, Color.TRANSPARENT);
         mDividerResource = ta.getResourceId(R.styleable.TitleBarView_title_dividerResource, -1);
-        mDividerHeight = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_dividerHeight, dip2px(context, 1));
+        mDividerHeight = ta.getDimensionPixelSize(R.styleable.TitleBarView_title_dividerHeight, dip2px(context, 0.5f));
         mDividerVisible = ta.getBoolean(R.styleable.TitleBarView_title_dividerVisible, true);
         mStatusColor = ta.getColor(R.styleable.TitleBarView_title_statusColor, Color.TRANSPARENT);
 
@@ -334,6 +335,10 @@ public class TitleBarView extends FrameLayout {
         setImmersible(activity, immersible, true);
     }
 
+    public void setImmersible(Activity activity, boolean immersible, boolean isTransStatusBar) {
+        setImmersible(activity, immersible, isTransStatusBar, true);
+    }
+
     private boolean isSetImmersible = false;
     private int statusBarColor;
 
@@ -342,11 +347,12 @@ public class TitleBarView extends FrameLayout {
      *
      * @param activity
      * @param immersible
-     * @param isPlusStatusHeight 是否增加statusBar 高度
+     * @param isTransStatusBar 是否透明状态栏
+     * @param isPlusStatusBar  是否增加状态栏高度--用于控制底部有输入框 (设置false/xml背景色必须保持和状态栏一致)
      */
-    public void setImmersible(Activity activity, boolean immersible, boolean isPlusStatusHeight) {
+    public void setImmersible(Activity activity, boolean immersible, boolean isTransStatusBar, boolean isPlusStatusBar) {
         this.immersible = immersible;
-        if (immersible && isPlusStatusHeight && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        if (immersible && isPlusStatusBar && Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             mStatusBarHeight = getStatusBarHeight();
         } else {
             mStatusBarHeight = 0;
@@ -362,7 +368,9 @@ public class TitleBarView extends FrameLayout {
                 window.addFlags(
                         WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                    if (isTransStatusBar) {
+                        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                    }
                     window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
                     window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
                     statusBarColor = window.getStatusBarColor();
@@ -400,12 +408,12 @@ public class TitleBarView extends FrameLayout {
             mCenterLayout.layout(mLeftLayout.getMeasuredWidth(),
                     mStatusBarHeight,
                     mScreenWidth - mLeftLayout.getMeasuredWidth(),
-                    getMeasuredHeight());
+                    getMeasuredHeight() - mDividerHeight);
         } else {
             mCenterLayout.layout(mRightLayout.getMeasuredWidth(),
                     mStatusBarHeight,
                     mScreenWidth - mRightLayout.getMeasuredWidth(),
-                    getMeasuredHeight());
+                    getMeasuredHeight() - mDividerHeight);
         }
         mDividerView.layout(0,
                 getMeasuredHeight() - mDividerView.getMeasuredHeight(),
@@ -414,6 +422,7 @@ public class TitleBarView extends FrameLayout {
                 0,
                 getMeasuredWidth(), mStatusBarHeight);
     }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         measureChild(mLeftLayout, widthMeasureSpec, heightMeasureSpec);
@@ -428,9 +437,9 @@ public class TitleBarView extends FrameLayout {
                     heightMeasureSpec);
         }
         measureChild(mDividerView, widthMeasureSpec, heightMeasureSpec);
-        measureChild(mStatusView,widthMeasureSpec,heightMeasureSpec);
+        measureChild(mStatusView, widthMeasureSpec, heightMeasureSpec);
         setMeasuredDimension(MeasureSpec.getSize(widthMeasureSpec),
-                MeasureSpec.getSize(heightMeasureSpec) + mStatusBarHeight);
+                MeasureSpec.getSize(heightMeasureSpec) + mStatusBarHeight + mDividerHeight);
     }
 
     public void setDividerColor(int color) {
@@ -565,9 +574,9 @@ public class TitleBarView extends FrameLayout {
 
     public void setTitleMainText(CharSequence charSequence) {
         mTitleTv.setText(charSequence);
-        if (!TextUtils.isEmpty(charSequence) && !isAddTitileMain) {//非空且还未添加主标题
+        if (!TextUtils.isEmpty(charSequence) && !isAddTitleMain) {//非空且还未添加主标题
             mCenterLayout.addView(mTitleTv, 0);
-            isAddTitileMain = true;
+            isAddTitleMain = true;
         }
     }
 

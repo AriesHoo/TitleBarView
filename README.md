@@ -22,8 +22,22 @@ dependencies {
 ```
 
 ####二、截图预览
+
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/00.png)
 
+![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/01.png)
+
+![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/02.png)
+
+![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/03.png)
+
+![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/04.png)
+
+![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/05.png)
+
+![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/06.png)
+
+其它截图查看:[UIWidget](https://github.com/AriesHoo/UIWidget)
 ####三、鸣谢
 1、[titlebar](https://github.com/bacy/titlebar)
 2、[TitleBarLibs](https://github.com/sandalli/TitleBarLibs)
