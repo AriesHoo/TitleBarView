@@ -38,6 +38,7 @@ dependencies {
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/06.png)
 
 其它截图查看:[UIWidget](https://github.com/AriesHoo/UIWidget)
+
 ####三、鸣谢
 1、[titlebar](https://github.com/bacy/titlebar)
 2、[TitleBarLibs](https://github.com/sandalli/TitleBarLibs)
