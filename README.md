@@ -1,6 +1,6 @@
 #TitleBarView
 --------------------------
-####一、简介：
+一、简介：
 
 一个支持沉浸式 TitleBarView，支持文xml及java代码设置各种属性
 
@@ -17,7 +17,7 @@ allprojects {
 
 ```
 dependencies {
-     compile 'com.github.AriesHoo:TitleBarView:1.0.0'
+     compile 'com.github.AriesHoo:TitleBarView:1.2.0'
 }
 ```
 
