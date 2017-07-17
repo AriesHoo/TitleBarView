@@ -35,6 +35,13 @@ public class AppUtil {
         }
     }
 
+    public static void startBorwer(Context context, String url) {
+        Intent intent = new Intent();
+        intent.setAction("android.intent.action.VIEW");
+        intent.setData(Uri.parse(url));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
+    }
     /**
      * @param activity
      * @param bundle

@@ -5,4 +5,6 @@
     <dimen name="dp_line_size">0.5dp</dimen>
     <dimen name="dp_line_break">8dp</dimen>
     <dimen name="dp_margin">10dp</dimen>
+    <dimen name="dp_drawer_header">110dp</dimen>
+    <dimen name="dp_text_size_main">14sp</dimen>
 </resources>

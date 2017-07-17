@@ -17,7 +17,7 @@ allprojects {
 
 ```
 dependencies {
-    // compile 'com.github.AriesHoo:TitleBarView:1.2.0'
+    // compile 'com.github.AriesHoo:TitleBarView:1.3.0'
      compile 'com.github.AriesHoo:TitleBarView:${LATEST_VERSION}'
 }
 ```
@@ -43,4 +43,7 @@ dependencies {
 三、鸣谢
 
 1、[titlebar](https://github.com/bacy/titlebar)
+
 2、[TitleBarLibs](https://github.com/sandalli/TitleBarLibs)
+
+2、[StatusBarUtil](https://github.com/laobie/StatusBarUtil)
