@@ -1,6 +1,6 @@
 # TitleBarView
 --------------------------
-一、简介：
+### 一、简介：
 
 一个支持Android 4.4以上版本沉浸式及半透明状态栏效果的 TitleBarView，支持文xml及java代码设置各种属性;同时可动态设置左边、中间、右边布局;实现MIUI V6、Flyme 4.0、Android 6.0以上状态栏黑、白颜色文字切换。
 
@@ -22,7 +22,7 @@ dependencies {
 }
 ```
 
-三、录屏效果
+### 二、录屏效果
 
 Android 4.4
 
@@ -41,7 +41,7 @@ Android 7.0
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/7.0.gif)
 
 
-三、截图预览
+### 三、截图预览
 
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/00.png)
 
@@ -59,7 +59,7 @@ Android 7.0
 
 其它UI库查看:[UIWidget](https://github.com/AriesHoo/UIWidget)
 
-四、鸣谢
+### 四、鸣谢
 
 1、[titlebar](https://github.com/bacy/titlebar)
 
