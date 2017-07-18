@@ -22,7 +22,13 @@ dependencies {
 }
 ```
 
-二、截图预览
+三、录屏效果
+
+Android 4.4
+
+![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/4.4.gif)
+
+三、截图预览
 
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/00.png)
 
@@ -40,10 +46,10 @@ dependencies {
 
 其它截图查看:[UIWidget](https://github.com/AriesHoo/UIWidget)
 
-三、鸣谢
+四、鸣谢
 
 1、[titlebar](https://github.com/bacy/titlebar)
 
 2、[TitleBarLibs](https://github.com/sandalli/TitleBarLibs)
 
-2、[StatusBarUtil](https://github.com/laobie/StatusBarUtil)
+3、[StatusBarUtil](https://github.com/laobie/StatusBarUtil)
