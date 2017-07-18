@@ -28,6 +28,19 @@ Android 4.4
 
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/4.4.gif)
 
+Android 5.1
+
+![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/5.1.gif)
+
+Android 6.0
+
+![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/6.0.gif)
+
+Android 7.0
+
+![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/7.0.gif)
+
+
 三、截图预览
 
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/00.png)
@@ -44,7 +57,7 @@ Android 4.4
 
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/06.png)
 
-其它截图查看:[UIWidget](https://github.com/AriesHoo/UIWidget)
+其它UI库查看:[UIWidget](https://github.com/AriesHoo/UIWidget)
 
 四、鸣谢
 

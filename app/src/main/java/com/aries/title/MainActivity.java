@@ -200,10 +200,10 @@ public class MainActivity extends BaseRecycleActivity<TitleEntity> {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 tvStatusAlpha.setText(progress + "");
                 mAlpha = progress;
-                sBtnImmersible.setChecked(mAlpha < 200);
+                sBtnImmersible.setChecked(mAlpha < 240);
                 sBtnLight.setChecked(mAlpha == 0);
                 titleBar.setStatusAlpha(mAlpha);
-                if (mAlpha > 200 && isWhite) {
+                if (mAlpha > 240 && isWhite) {
                     StatusBarUtil.StatusBarDarkMode(mContext);
                 } else {
                     if (isWhite) {
