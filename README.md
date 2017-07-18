@@ -10,7 +10,7 @@
 
 3、可动态控制状态栏是否沉浸及状态栏透明度
 
-3、实现MIUI V6、Flyme 4.0、Android 6.0以上状态栏文字颜色切换（黑、白）。
+4、实现MIUI V6、Flyme 4.0、Android 6.0以上状态栏文字颜色切换（黑、白）。
 
 [[Sample PC Download]](https://github.com/AriesHoo/TitleBarView/blob/master/apk/sample.apk)  
 
