@@ -3,12 +3,18 @@
 ### 一、简介：
 
 一个支持Android 4.4以上版本沉浸式及半透明状态栏效果的 TitleBarView。
+
 1、支持文xml及java代码设置各种属性;
+
 2、可动态设置左边、中间、右边布局 实现复写;
+
 3、可动态控制状态栏是否沉浸及状态栏透明度
+
 3、实现MIUI V6、Flyme 4.0、Android 6.0以上状态栏文字颜色切换（黑、白）。
 
-[[Sample PC Download]](https://github.com/AriesHoo/TitleBarView/blob/master/apk/sample.apk)  [[Sample Mobile Download]](https://fir.im/pmb2)
+[[Sample PC Download]](https://github.com/AriesHoo/TitleBarView/blob/master/apk/sample.apk)  
+
+[[Sample Mobile Download]](https://fir.im/pmb2)
 
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/apk/qr.png)
 
