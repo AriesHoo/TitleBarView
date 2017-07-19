@@ -2,7 +2,7 @@
 --------------------------
 ### 一、简介：
 
-一个支持Android 4.4以上版本沉浸式及半透明状态栏效果的 TitleBarView。
+一个支持Android 4.4以上版本沉浸式及半透明状态栏效果的 TitleBarView;更全常见UI库参看 [UIWidget](https://github.com/AriesHoo/UIWidget)
 
 1、支持文xml及java代码设置各种属性;
 
