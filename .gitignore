@@ -11,3 +11,6 @@
 /.gitignore
 /*.gitignore
 /.idea
+/gradle
+/gradlew.bat
+/gradlew
