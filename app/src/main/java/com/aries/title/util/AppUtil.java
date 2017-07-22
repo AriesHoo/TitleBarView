@@ -63,4 +63,16 @@ public class AppUtil {
         startActivity(mContext, activity, null);
     }
 
+    public static void shareShareText(Activity mActivity, String url) {
+        if (mActivity == null) {
+            return;
+        }
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, url);
+        shareIntent.setType("text/plain");
+        //设置分享列表的标题，并且每次都显示分享列表
+        mActivity.startActivity(Intent.createChooser(shareIntent, "分享到"));
+    }
+
 }

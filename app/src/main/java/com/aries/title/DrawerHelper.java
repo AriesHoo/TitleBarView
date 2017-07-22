@@ -7,7 +7,6 @@ import android.view.View;
 
 import com.aries.title.adapter.DrawerAdapter;
 import com.aries.title.entity.DrawerEntity;
-import com.aries.title.util.AppUtil;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemClickListener;
 
@@ -43,7 +42,8 @@ public class DrawerHelper {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
                 DrawerEntity entity = (DrawerEntity) mAdapterDrawer.getItem(position);
-                AppUtil.startBorwer(mContext, entity.url);
+//                AppUtil.startBorwer(mContext, entity.url);
+                WebViewActivity.start(mContext, entity.url);
             }
         });
         mAdapterDrawer.setNewData(list);
