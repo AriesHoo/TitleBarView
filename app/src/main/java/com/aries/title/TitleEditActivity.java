@@ -4,8 +4,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import com.aries.title.base.BaseActivity;
+import com.aries.ui.util.StatusBarUtil;
 import com.aries.ui.view.radius.RadiusTextView;
-import com.aries.ui.view.title.StatusBarUtil;
 import com.aries.ui.view.title.TitleBarView;
 
 import butterknife.BindView;
@@ -23,7 +23,7 @@ public class TitleEditActivity extends BaseActivity {
 
     @Override
     protected void setTitleBar() {
-        StatusBarUtil.StatusBarDarkMode(this);
+        StatusBarUtil.setStatusBarDarkMode(this);
         titleBar.setLeftTextDrawable(R.drawable.ic_arrow_back_white);
         titleBar.setBackgroundColor(getResources().getColor(android.R.color.holo_purple));
         titleBar.setTitleMainTextColor(Color.WHITE);

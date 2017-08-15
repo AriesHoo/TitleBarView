@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.aries.title.R;
 import com.aries.title.util.AppUtil;
-import com.aries.ui.view.title.StatusBarUtil;
+import com.aries.ui.util.StatusBarUtil;
 import com.aries.ui.view.title.TitleBarView;
 
 import butterknife.ButterKnife;
@@ -69,7 +69,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (titleBar == null) {
             return;
         }
-        type = StatusBarUtil.StatusBarLightMode(mContext);
+        type = StatusBarUtil.setStatusBarLightMode(mContext);
         if (type <= 0) {//无法设置白底黑字
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {//5.0推荐使用
                 titleBar.setImmersible(mContext, true, false);// 非透明状态栏模式
