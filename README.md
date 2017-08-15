@@ -64,7 +64,7 @@ Android 7.0
 
 ### 3.1 属性
 ```
-<declare-styleable name="TitleBarView">
+     <declare-styleable name="TitleBarView">
         <attr name="title_immersible" format="boolean"/>
         <attr name="title_outPadding" format="dimension"/>
         <attr name="title_actionPadding" format="dimension"/>
@@ -178,13 +178,13 @@ titleBar.setOnLeftTextClickListener(new View.OnClickListener() {
                 
             }
         });
-        titleBar.setOnCenterClickListener(new View.OnClickListener() {
+titleBar.setOnCenterClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 
             }
         });
-        titleBar.setOnRightTextClickListener(new View.OnClickListener() {
+ titleBar.setOnRightTextClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 
