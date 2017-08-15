@@ -60,9 +60,9 @@ Android 7.0
 
 其它UI库查看:[UIWidget](https://github.com/AriesHoo/UIWidget)
 
-## 三、实用方法
+## 三、使用方法
 
-**3.1 属性**
+### 3.1 属性
 ```
 <declare-styleable name="TitleBarView">
         <attr name="title_immersible" format="boolean"/>
@@ -115,6 +115,7 @@ Android 7.0
         <attr name="title_actionTextBackgroundResource" format="reference"/>
     </declare-styleable>
 ```
+### 3.2 部分属性说明
 
 属性名 | 说明 | 默认值
 :----------- | :----------- | :-----------
@@ -124,7 +125,91 @@ title_actionPadding         | 添加自定义控件左右边距        | 
 title_centerGravityLeft         | 标题Layout是否左对齐        | false
 title_statusColor         | 状态栏背景色        | -1
 title_statusResource         | 状态栏背景资源  | -1
+title_dividerColor         | 下划线背景色  | Color.TRANSPARENT
+title_dividerResource         | 下划线背景资源  | -1
+title_dividerHeight         | 下划线高度  | 0.5dp
+title_dividerVisible         | 下划线是否可见  | true
+title_titleMainTextMarquee| 主标题是否跑马灯效果-主副标题只能设置一个  | false
+title_titleSubTextMarquee| 副标题是否跑马灯效果-主副标题只能设置一个  | false
+title_actionTextSize| 添加TextView 字体  | 14dp
+title_actionTextColor| 添加TextView 文字颜色  | Color.WHITE
 
+### 3.3 xml示例
+
+```
+<?xml version="1.0" encoding="utf-8"?>
+<com.aries.ui.view.title.TitleBarView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/titleBar"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:background="@color/colorTitle"
+    app:title_actionTextColor="@color/colorTextBlack"
+    app:title_dividerColor="@color/colorLineGray"
+    app:title_leftTextColor="@color/colorTextBlack"
+    app:title_leftTextDrawable="@drawable/ic_arrow_left"
+    app:title_rightTextColor="@color/colorTextBlack"
+    app:title_titleMainTextColor="@color/colorTextBlack"
+    app:title_titleSubTextColor="@color/colorTextBlack"/>
+```
+### 3.4 java代码示例
+
+#### 3.4.1 设置文本-支持字符串和String资源
+
+```
+titleBar.setLeftText("左边文字");
+titleBar.setRightText("右边文字");
+titleBar.setTitleMainText("主标题");
+titleBar.setTitleSubText("副标题");
+```
+#### 3.4.2 设置左右图片资源-只支持drawable
+
+```
+titleBar.setLeftTextDrawable(R.drawable.ic_share);
+titleBar.setRightTextDrawable(R.drawable.ic_close);
+```
+#### 3.4.3 设置点击事件
+
+```
+titleBar.setOnLeftTextClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+        titleBar.setOnCenterClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+        titleBar.setOnRightTextClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+```
+#### 3.4.4 addView--可支持TextView、ImageView、View
+
+```
+titleBar.addLeftAction(titleBar.new ImageAction(R.drawable.ic_close, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        }));
+ View view = View.inflate(mContext, R.layout.layout_news_sliding, null);
+            mSlidingTab = (SlidingTabLayout) view.findViewById(R.id.tabLayout_slidingNews);
+ titleBar.addCenterAction(titleBar.new ViewAction(view));
+ titleBar.addRightAction(titleBar.new ImageAction(R.drawable.fast_ic_close, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialog();
+            }
+        }));
+```
 ## 四、鸣谢
 
 1、[https://github.com/bacy/titlebar](https://github.com/bacy/titlebar)
