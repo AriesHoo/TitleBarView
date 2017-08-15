@@ -210,6 +210,21 @@ titleBar.addLeftAction(titleBar.new ImageAction(R.drawable.ic_close, new View.On
             }
         }));
 ```
+
+### 3.5 特殊场景处理
+
+#### 3.5.1 底部输入框处理--IM常见用法参考[TitleEditActivity](https://github.com/AriesHoo/TitleBarView/blob/master/app/src/main/java/com/aries/title/TitleEditActivity.java)
+```
+//底部有输入框时使用--最后一个参数false
+titleBar.setImmersible(mContext, true, true, false);
+//设置根布局setFitsSystemWindows(true)
+getRootView().setFitsSystemWindows(true);
+//根布局背景色保持和titleBar背景一致
+getRootView().setBackground(titleBar.getBackground());
+//或者
+getRootView().setBackgroundColor("TitleBarView背景色或者背景资源");
+//注:软键盘弹起会透出根布局背景(即:TitleBarView背景色)
+```
 ## 四、鸣谢
 
 1、[https://github.com/bacy/titlebar](https://github.com/bacy/titlebar)
