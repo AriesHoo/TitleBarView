@@ -38,6 +38,10 @@ dependencies {
 
 ### 二、录屏预览
 
+Android 4.1
+
+![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/4.1.gif)
+
 Android 4.4
 
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/screenshot/4.4.gif)
