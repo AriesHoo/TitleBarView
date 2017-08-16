@@ -155,7 +155,7 @@ title_actionTextColor| 添加TextView 文字颜色  | Color.WHITE
 ```
 ### 3.4 java代码示例
 
-#### 3.4.1 设置文本-支持字符串和String资源
+###### 3.4.1 设置文本-支持字符串和String资源
 
 ```
 titleBar.setLeftText("左边文字");
@@ -163,13 +163,13 @@ titleBar.setRightText("右边文字");
 titleBar.setTitleMainText("主标题");
 titleBar.setTitleSubText("副标题");
 ```
-#### 3.4.2 设置左右图片资源-只支持drawable
+###### 3.4.2 设置左右图片资源-只支持drawable
 
 ```
 titleBar.setLeftTextDrawable(R.drawable.ic_share);
 titleBar.setRightTextDrawable(R.drawable.ic_close);
 ```
-#### 3.4.3 设置点击事件
+###### 3.4.3 设置点击事件
 
 ```
 titleBar.setOnLeftTextClickListener(new View.OnClickListener() {
@@ -191,7 +191,7 @@ titleBar.setOnCenterClickListener(new View.OnClickListener() {
             }
         });
 ```
-#### 3.4.4 addView--可支持TextView、ImageView、View
+###### 3.4.4 addView--可支持TextView、ImageView、View
 
 ```
 titleBar.addLeftAction(titleBar.new ImageAction(R.drawable.ic_close, new View.OnClickListener() {
@@ -213,7 +213,7 @@ titleBar.addLeftAction(titleBar.new ImageAction(R.drawable.ic_close, new View.On
 
 ### 3.5 特殊场景处理
 
-#### 3.5.1 底部输入框处理--IM常见用法参考[TitleEditActivity](https://github.com/AriesHoo/TitleBarView/blob/master/app/src/main/java/com/aries/title/TitleEditActivity.java)
+###### 3.5.1 底部输入框处理--IM常见用法参考[TitleEditActivity](https://github.com/AriesHoo/TitleBarView/blob/master/app/src/main/java/com/aries/title/TitleEditActivity.java)
 ```
 //底部有输入框时使用--最后一个参数false
 titleBar.setImmersible(mContext, true, true, false);
