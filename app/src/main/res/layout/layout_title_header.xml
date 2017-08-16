@@ -48,7 +48,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorWhite"
-        android:checked="false"
+        android:checked="true"
         android:padding="12dp"
         android:text="显示下划线"
         android:textColor="@color/colorTextBlack"

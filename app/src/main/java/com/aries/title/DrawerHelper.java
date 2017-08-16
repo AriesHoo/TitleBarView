@@ -42,7 +42,6 @@ public class DrawerHelper {
             @Override
             public void onSimpleItemClick(BaseQuickAdapter adapter, View view, int position) {
                 DrawerEntity entity = (DrawerEntity) mAdapterDrawer.getItem(position);
-//                AppUtil.startBorwer(mContext, entity.url);
                 WebViewActivity.start(mContext, entity.url);
             }
         });

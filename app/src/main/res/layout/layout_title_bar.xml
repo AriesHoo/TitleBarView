@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="48dp"
     android:background="@color/colorTitle"
+    app:title_statusBarLightMode="true"
     app:title_actionTextColor="@color/colorTextBlack"
     app:title_dividerColor="@color/colorLineGray"
     app:title_leftTextColor="@color/colorTextBlack"
