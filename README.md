@@ -73,8 +73,9 @@ Android 7.0
 
 ## 三、鸣谢
 
-1、[https://github.com/bacy/titlebar](https://github.com/bacy/titlebar)
+1、[bacy/titlebar](https://github.com/bacy/titlebar)
 
-2、[https://github.com/sandalli/TitleBarLibs](https://github.com/sandalli/TitleBarLibs)
+2、[sandalli/TitleBarLibs](https://github.com/sandalli/TitleBarLibs)
 
-3、[https://github.com/laobie/StatusBarUtil](https://github.com/laobie/StatusBarUtil)
+3、[laobie/StatusBarUtil](https://github.com/laobie/StatusBarUtil)
+
