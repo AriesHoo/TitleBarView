@@ -3,20 +3,21 @@
 ## 一、简介：
 
 一个支持Android 4.4以上版本沉浸式及半透明状态栏效果的 TitleBarView;更全常见UI库参看 [UIWidget](https://github.com/AriesHoo/UIWidget)
-
-1、支持文xml及java代码设置各种属性;
-
-2、可动态设置左边、中间、右边布局 实现复写;
-
-3、可动态控制状态栏是否沉浸及状态栏透明度
-
-4、实现MIUI V6、Flyme 4.0、Android 6.0以上状态栏文字颜色切换（黑、白）。
+TitleBarView是基于ViewGroup的扩展，主要具有以下特性
+1、支持Android 4.4以上版本沉浸式（关于这个叫法大家不要去纠结,意会即可）及半透明状态栏效果
+2、实现MIUI V6、Flyme 4.0、Android 6.0以上状态栏文字颜色切换(当然只能黑或白色)
+3、支持java代码及XML设置众多自定义属性
+4、可设置左边文字/图片、中间主、副标题、右边文字/图片
+5、支持Java代码添加左边、中间、右边 View
+说明:此处沉浸式状态栏为状态栏透明化且布局延伸至状态栏下效果，非状态栏着色模式
 
 [[Sample PC Download]](https://github.com/AriesHoo/TitleBarView/blob/master/apk/sample.apk)  
 
 [[Sample Mobile Download]](https://fir.im/pmb2)
 
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/apk/qr.png)
+
+详情实现流程解析请移步:[Android自带沉浸状态栏效果标题栏控件-TitleBarView](http://www.jianshu.com/p/34ace867b29f)
 
 **1.1 Gradle集成**
 
@@ -65,53 +66,97 @@ Android 7.0
 ### 3.1 属性
 ```
      <declare-styleable name="TitleBarView">
+        <!--是否沉浸式状态栏,默认true-->
         <attr name="title_immersible" format="boolean"/>
+        <!--内边距(距左右),默认12dp-->
         <attr name="title_outPadding" format="dimension"/>
+        <!--添加子View 内边距,默认1dp-->
         <attr name="title_actionPadding" format="dimension"/>
+        <!--标题文字是否左对齐,默认false即:标题居中-->
         <attr name="title_centerGravityLeft" format="boolean"/>
+        <!--是否浅色状态栏(黑色文字及图标)-->
+        <attr name="title_statusBarLightMode" format="boolean"/>
 
+        <!--状态栏背景色,默认-1-->
         <attr name="title_statusColor" format="color"/>
+        <!--状态栏背景资源,默认-1-->
         <attr name="title_statusResource" format="reference"/>
+        <!--下划线背景色,默认Color.TRANSPARENT-->
         <attr name="title_dividerColor" format="color"/>
+        <!--下划线背景资源,默认-1-->
         <attr name="title_dividerResource" format="reference"/>
+        <!--下划线高度,默认0.5dp-->
         <attr name="title_dividerHeight" format="dimension"/>
+        <!--下划线是否可见,默认true-->
         <attr name="title_dividerVisible" format="boolean"/>
 
+        <!--左边文字,支持CharSequence及String资源-->
         <attr name="title_leftText" format="string"/>
+        <!--左边文字大小,默认14dp-->
         <attr name="title_leftTextSize" format="dimension"/>
+        <!--左边文字颜色,默认Color.WHITE-->
         <attr name="title_leftTextColor" format="color"/>
+        <!--左边文字背景颜色,默认Color.TRANSPARENT-->
         <attr name="title_leftTextBackgroundColor" format="color"/>
+        <!--左边文字背景资源,默认-1-->
         <attr name="title_leftTextBackgroundResource" format="reference"/>
+        <!--左边文字drawable资源-->
         <attr name="title_leftTextDrawable" format="reference"/>
+        <!--左边文字与drawable资源边距,默认1dp-->
         <attr name="title_leftTextDrawablePadding" format="dimension"/>
 
+        <!--主标题文字,支持CharSequence及String资源-->
         <attr name="title_titleMainText" format="string"/>
+        <!--主标题文字大小,默认18dp-->
         <attr name="title_titleMainTextSize" format="dimension"/>
+        <!--主标题文字颜色,默认Color.WHITE-->
         <attr name="title_titleMainTextColor" format="color"/>
+        <!--主标题文字背景颜色,默认Color.TRANSPARENT-->
         <attr name="title_titleMainTextBackgroundColor" format="color"/>
+        <!--主标题文字背景资源,默认-1-->
         <attr name="title_titleMainTextBackgroundResource" format="reference"/>
+        <!--主标题文字是否粗体,默认false-->
         <attr name="title_titleMainTextFakeBold" format="boolean"/>
+        <!--主标题文字是否跑马灯,默认false-->
         <attr name="title_titleMainTextMarquee" format="boolean"/>
 
+        <!--副标题文字,支持CharSequence及String资源-->
         <attr name="title_titleSubText" format="string"/>
+        <!--副标题文字大小,默认12dp-->
         <attr name="title_titleSubTextSize" format="dimension"/>
+        <!--副标题文字颜色,默认Color.WHITE-->
         <attr name="title_titleSubTextColor" format="color"/>
+        <!--副标题文字背景颜色,默认Color.TRANSPARENT-->
         <attr name="title_titleSubTextBackgroundColor" format="color"/>
+        <!--副标题文字背景资源,默认-1-->
         <attr name="title_titleSubTextBackgroundResource" format="reference"/>
+        <!--副标题文字是否粗体,默认false-->
         <attr name="title_titleSubTextFakeBold" format="boolean"/>
+        <!--副标题文字是否跑马灯,默认false-->
         <attr name="title_titleSubTextMarquee" format="boolean"/>
 
+        <!--右边边文字,支持CharSequence及String资源-->
         <attr name="title_rightText" format="string"/>
+        <!--右边文字大小,默认14dp-->
         <attr name="title_rightTextSize" format="dimension"/>
+        <!--右边文字颜色,默认Color.WHITE-->
         <attr name="title_rightTextColor" format="color"/>
+        <!--右边文字背景颜色,默认Color.TRANSPARENT-->
         <attr name="title_rightTextBackgroundColor" format="color"/>
+        <!--右边文字背景资源,默认-1-->
         <attr name="title_rightTextBackgroundResource" format="reference"/>
+        <!--右边文字drawable资源-->
         <attr name="title_rightTextDrawable" format="reference"/>
+        <!--右边文字与drawable资源边距,默认1dp-->
         <attr name="title_rightTextDrawablePadding" format="dimension"/>
 
+        <!--添加TextView文字大小,默认14dp-->
         <attr name="title_actionTextSize" format="dimension"/>
+        <!--添加TextView文字颜色,默认Color.WHITE-->
         <attr name="title_actionTextColor" format="color"/>
+        <!--添加TextView文字背景颜色,默认Color.TRANSPARENT-->
         <attr name="title_actionTextBackgroundColor" format="color"/>
+        <!--添加TextView文字背景资源,默认-1-->
         <attr name="title_actionTextBackgroundResource" format="reference"/>
     </declare-styleable>
 ```
