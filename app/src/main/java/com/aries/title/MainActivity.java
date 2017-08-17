@@ -24,6 +24,7 @@ import com.aries.ui.util.StatusBarUtil;
 import com.aries.ui.view.title.TitleBarView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.sunfusheng.glideimageview.GlideImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +43,7 @@ public class MainActivity extends BaseRecycleActivity<TitleEntity> {
     @BindView(R.id.titleBarDrawer) TitleBarView titleBarDrawer;
     @BindView(R.id.fLayout_drawer) FrameLayout fLayoutDrawer;
     @BindView(R.id.rv_contentDrawer) RecyclerView mRecyclerViewDrawer;
+    @BindView(R.id.giv_headDrawer) GlideImageView givHead;
     private SwitchCompat sBtnImmersible;
     private SwitchCompat sBtnLight;
     private SwitchCompat sBtnLine;
@@ -109,6 +111,7 @@ public class MainActivity extends BaseRecycleActivity<TitleEntity> {
     @Override
     protected void initView(Bundle bundle) {
         super.initView(bundle);
+        givHead.loadCircleImage("https://avatars3.githubusercontent.com/u/19605922?v=4&s=460",android.R.color.holo_purple);
         titleBarDrawer.setImmersible(mContext, isImmersible, isLight);
         vHeader = View.inflate(mContext, R.layout.layout_title_header, null);
         sBtnImmersible = (SwitchCompat) vHeader.findViewById(R.id.sBtn_immersible);
