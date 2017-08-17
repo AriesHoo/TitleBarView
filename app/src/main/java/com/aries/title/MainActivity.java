@@ -19,6 +19,7 @@ import com.aries.title.base.BaseRecycleActivity;
 import com.aries.title.entity.DrawerEntity;
 import com.aries.title.entity.TitleEntity;
 import com.aries.title.util.ViewUtil;
+import com.aries.ui.util.RomUtil;
 import com.aries.ui.util.StatusBarUtil;
 import com.aries.ui.view.title.TitleBarView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
@@ -66,7 +67,7 @@ public class MainActivity extends BaseRecycleActivity<TitleEntity> {
     @Override
     protected void setTitleBar() {
         titleBar.setTitleMainText("主标题");
-        titleBar.setTitleSubText("副标题");
+        titleBar.setTitleSubText(getSubText());
         titleBar.setRightTextDrawable(isWhite ? R.drawable.ic_menu : R.drawable.ic_menu_white);
         titleBar.setOnRightTextClickListener(new View.OnClickListener() {
             @Override
@@ -74,11 +75,20 @@ public class MainActivity extends BaseRecycleActivity<TitleEntity> {
                 drawerRoot.openDrawer(svSlide);
             }
         });
-        if (StatusBarUtil.isMIUI()) {
-            titleBar.setTitleSubText("MIUI" + StatusBarUtil.getMIUIVersionName());
-        }
+
     }
 
+    private String getSubText() {
+        String text = "Android" + Build.VERSION.RELEASE;
+        if (RomUtil.isMIUI()) {
+            text += "-MIUI" + RomUtil.getMIUIVersion();
+        } else if (RomUtil.isFlyme()) {
+            text += "-Flyme" + RomUtil.getFlymeVersionCode();
+        } else if (RomUtil.isEMUI()) {
+            text += "-EMUI" + RomUtil.getEMUIVersion();
+        }
+        return text;
+    }
     @Override
     protected int getLayout() {
         return R.layout.activity_main;
@@ -116,6 +126,7 @@ public class MainActivity extends BaseRecycleActivity<TitleEntity> {
         List<DrawerEntity> listDrawer = new ArrayList<>();
         listDrawer.add(new DrawerEntity("AriesHoo", "点击跳转GitHub个人主页", "https://github.com/AriesHoo"));
         listDrawer.add(new DrawerEntity("TitleBarView", "点击跳转GitHub项目页", "https://github.com/AriesHoo/TitleBarView/blob/master/README.md"));
+        listDrawer.add(new DrawerEntity("简书-TitleBarView解析", "点击跳转简书", "http://www.jianshu.com/p/34ace867b29f"));
         listDrawer.add(new DrawerEntity("UIWidget", "点击跳转GitHub项目页", "https://github.com/AriesHoo/UIWidget/blob/master/README.md"));
         DrawerHelper.getInstance().initRecyclerView(mContext, mRecyclerViewDrawer, listDrawer);
     }

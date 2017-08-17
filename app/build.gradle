@@ -9,8 +9,8 @@ android {
         applicationId "com.aries.titile"
         minSdkVersion ext.minSdkVersion
         targetSdkVersion ext.targetSdkVersion
-        versionCode 8
-        versionName "1.8.0"
+        versionCode 9
+        versionName "1.8.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
