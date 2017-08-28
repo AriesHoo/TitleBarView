@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.os.Build;
 import android.text.TextUtils;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -228,7 +227,6 @@ public class TitleBarView extends ViewGroup {
     private void setViewAttributes(final Context context) {
         mScreenWidth = getScreenWidth();
         mStatusBarHeight = getStatusBarHeight();
-        Log.d("setViewAttributes", "isActivity:" + (context instanceof Activity));
         if (context instanceof Activity) {
             setImmersible((Activity) context, mImmersible);
             if (mStatusBarLightMode)
