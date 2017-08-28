@@ -9,6 +9,7 @@ import android.support.v7.widget.SwitchCompat;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.SeekBar;
@@ -18,13 +19,13 @@ import com.aries.title.adapter.TitleAdapter;
 import com.aries.title.base.BaseRecycleActivity;
 import com.aries.title.entity.DrawerEntity;
 import com.aries.title.entity.TitleEntity;
+import com.aries.title.manager.GlideManager;
 import com.aries.title.util.ViewUtil;
 import com.aries.ui.util.RomUtil;
 import com.aries.ui.util.StatusBarUtil;
 import com.aries.ui.view.title.TitleBarView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
-import com.sunfusheng.glideimageview.GlideImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +44,7 @@ public class MainActivity extends BaseRecycleActivity<TitleEntity> {
     @BindView(R.id.titleBarDrawer) TitleBarView titleBarDrawer;
     @BindView(R.id.fLayout_drawer) FrameLayout fLayoutDrawer;
     @BindView(R.id.rv_contentDrawer) RecyclerView mRecyclerViewDrawer;
-    @BindView(R.id.giv_headDrawer) GlideImageView givHead;
+    @BindView(R.id.iv_headDrawer) ImageView ivHead;
     private SwitchCompat sBtnImmersible;
     private SwitchCompat sBtnLight;
     private SwitchCompat sBtnLine;
@@ -111,7 +112,7 @@ public class MainActivity extends BaseRecycleActivity<TitleEntity> {
     @Override
     protected void initView(Bundle bundle) {
         super.initView(bundle);
-        givHead.loadCircleImage("https://avatars3.githubusercontent.com/u/19605922?v=4&s=460",android.R.color.holo_purple);
+        GlideManager.loadCircleImg("https://avatars3.githubusercontent.com/u/19605922?v=4&s=460", ivHead);
         titleBarDrawer.setImmersible(mContext, isImmersible, isLight);
         vHeader = View.inflate(mContext, R.layout.layout_title_header, null);
         sBtnImmersible = (SwitchCompat) vHeader.findViewById(R.id.sBtn_immersible);
@@ -128,9 +129,10 @@ public class MainActivity extends BaseRecycleActivity<TitleEntity> {
     private void setDrawerList() {
         List<DrawerEntity> listDrawer = new ArrayList<>();
         listDrawer.add(new DrawerEntity("AriesHoo", "点击跳转GitHub个人主页", "https://github.com/AriesHoo"));
-        listDrawer.add(new DrawerEntity("TitleBarView", "点击跳转GitHub项目页", "https://github.com/AriesHoo/TitleBarView/blob/master/README.md"));
+        listDrawer.add(new DrawerEntity("FastLib-快速开发库", "点击跳转GitHub项目页", "https://github.com/AriesHoo/FastLib/blob/master/README.md"));
+        listDrawer.add(new DrawerEntity("TitleBarView-标题栏控件", "点击跳转GitHub项目页", "https://github.com/AriesHoo/TitleBarView/blob/master/README.md"));
         listDrawer.add(new DrawerEntity("简书-TitleBarView解析", "点击跳转简书", "http://www.jianshu.com/p/34ace867b29f"));
-        listDrawer.add(new DrawerEntity("UIWidget", "点击跳转GitHub项目页", "https://github.com/AriesHoo/UIWidget/blob/master/README.md"));
+        listDrawer.add(new DrawerEntity("UIWidget-常用UI控件库", "点击跳转GitHub项目页", "https://github.com/AriesHoo/UIWidget/blob/master/README.md"));
         DrawerHelper.getInstance().initRecyclerView(mContext, mRecyclerViewDrawer, listDrawer);
     }
 
