@@ -15,6 +15,8 @@
 
 - 支持Java代码及XML设置众多自定义属性
 
+- 支持Java代码链式调用方便快捷
+
 - 可设置左边文字/图片、中间主、副标题、右边文字/图片
 
 - 支持Java代码添加左边、中间、右边 View
@@ -44,7 +46,7 @@ allprojects {
 
 ```
 dependencies {
-    // compile 'com.github.AriesHoo:TitleBarView:1.8.2'
+    // compile 'com.github.AriesHoo:TitleBarView:1.8.3'
      compile 'com.github.AriesHoo:TitleBarView:${LATEST_VERSION}'
 }
 ```

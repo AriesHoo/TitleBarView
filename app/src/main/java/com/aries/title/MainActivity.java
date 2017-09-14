@@ -69,15 +69,15 @@ public class MainActivity extends BaseRecycleActivity<TitleEntity> {
 
     @Override
     protected void setTitleBar() {
-        titleBar.setTitleMainText("主标题");
-        titleBar.setTitleSubText(getSubText());
-        titleBar.setRightTextDrawable(isWhite ? R.drawable.ic_menu : R.drawable.ic_menu_white);
-        titleBar.setOnRightTextClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawerRoot.openDrawer(svSlide);
-            }
-        });
+        titleBar.setTitleMainText("主标题")
+                .setTitleSubText(getSubText())
+                .setRightTextDrawable(isWhite ? R.drawable.ic_menu : R.drawable.ic_menu_white)
+                .setOnRightTextClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        drawerRoot.openDrawer(svSlide);
+                    }
+                });
 
     }
 
