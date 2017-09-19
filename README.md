@@ -1,6 +1,6 @@
 # TitleBarView
 --------------------------
-## 一、简介：
+## 简介：
 
 一个支持Android 4.4以上版本沉浸式及半透明状态栏效果的 TitleBarView;更全常见UI库参看 [UIWidget](https://github.com/AriesHoo/UIWidget)
 
@@ -33,7 +33,7 @@
 ![](https://github.com/AriesHoo/TitleBarView/blob/master/apk/qr.png)
 
 
-**1.1 Gradle集成**
+**Gradle集成**
 
 ```
 allprojects {
@@ -51,7 +51,7 @@ dependencies {
 }
 ```
 
-## 二、录屏预览
+## 录屏预览
 
 Android 4.1
 
@@ -75,11 +75,29 @@ Android 7.0
 
 其它UI库查看:[UIWidget](https://github.com/AriesHoo/UIWidget)
 
-## 三、鸣谢
+## 鸣谢
 
 - [bacy/titlebar](https://github.com/bacy/titlebar)
 
 - [sandalli/TitleBarLibs](https://github.com/sandalli/TitleBarLibs)
 
 - [laobie/StatusBarUtil](https://github.com/laobie/StatusBarUtil)
+
+## License
+
+```
+Copyright 2016 Aries Hoo
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
 
