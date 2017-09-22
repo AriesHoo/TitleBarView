@@ -27,7 +27,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected boolean mIsFirstShow = true;
     private Unbinder mUnBinder;
     protected int type = 0;
-    protected boolean isWhite =true;
+    protected boolean isWhite = true;
+    protected View mContentView;
 
     protected abstract void setTitleBar();
 
@@ -54,7 +55,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         this.mContext = this;
         this.beforeSetView();
-        this.setContentView(this.getLayout());
+        mContentView = View.inflate(mContext, getLayout(), null);
+//        mContentView.setBackgroundResource(R.color.colorBackground);
+        this.setContentView(mContentView);
         mUnBinder = ButterKnife.bind(this);
         initTitle();
         this.beforeInitView();
