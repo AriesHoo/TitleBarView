@@ -1,5 +1,6 @@
 # TitleBarView
 --------------------------
+[![](https://img.shields.io/github/release/AriesHoo/TitleBarView.svg)](https://github.com/AriesHoo/TitleBarView/releases)  [![API](https://img.shields.io/badge/API-11%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=11)
 ## 简介：
 
 一个支持Android 4.4以上版本沉浸式及半透明状态栏效果的 TitleBarView;更全常见UI库参看 [UIWidget](https://github.com/AriesHoo/UIWidget)
