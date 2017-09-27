@@ -47,7 +47,7 @@ allprojects {
 
 ```
 dependencies {
-    // compile 'com.github.AriesHoo:TitleBarView:1.8.3'
+    // compile 'com.github.AriesHoo:TitleBarView:1.8.4'
      compile 'com.github.AriesHoo:TitleBarView:${LATEST_VERSION}'
 }
 ```
