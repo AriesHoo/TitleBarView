@@ -6,7 +6,6 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.text.TextUtils;
@@ -612,10 +611,11 @@ public class TitleBarView extends ViewGroup {
         Drawable mDrawable = null;
         try {
             mDrawable = getResources().getDrawable(id);
-            Rect mRect = mDrawable.getBounds();
-            mRect.bottom = mLeftTextDrawableHeight != -1 ? mLeftTextDrawableHeight : mDrawable.getMinimumHeight();
-            mRect.right = mLeftTextDrawableWidth != -1 ? mLeftTextDrawableWidth : mDrawable.getMinimumWidth();
-            mDrawable.setBounds(mRect);
+            if (mDrawable != null) {
+                mDrawable.setBounds(0, 0,
+                        mLeftTextDrawableWidth != -1 ? mLeftTextDrawableWidth : mDrawable.getIntrinsicWidth(),
+                        mLeftTextDrawableHeight != -1 ? mLeftTextDrawableHeight : mDrawable.getIntrinsicHeight());
+            }
         } catch (Exception e) {
         }
         mLeftTv.setCompoundDrawables(mDrawable, null, null, null);
@@ -938,10 +938,11 @@ public class TitleBarView extends ViewGroup {
         Drawable mDrawable = null;
         try {
             mDrawable = getResources().getDrawable(id);
-            Rect mRect = mDrawable.getBounds();
-            mRect.bottom = mRightTextDrawableHeight != -1 ? mRightTextDrawableHeight : mDrawable.getMinimumHeight();
-            mRect.right = mRightTextDrawableWidth != -1 ? mRightTextDrawableWidth : mDrawable.getMinimumWidth();
-            mDrawable.setBounds(mRect);
+            if (mDrawable != null) {
+                mDrawable.setBounds(0, 0,
+                        mRightTextDrawableWidth != -1 ? mRightTextDrawableWidth : mDrawable.getIntrinsicWidth(),
+                        mRightTextDrawableHeight != -1 ? mRightTextDrawableHeight : mDrawable.getIntrinsicHeight());
+            }
         } catch (Exception e) {
         }
         mRightTv.setCompoundDrawables(null, null, mDrawable, null);
