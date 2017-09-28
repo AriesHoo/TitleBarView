@@ -9,8 +9,8 @@ android {
         applicationId "com.aries.titile"
         minSdkVersion ext.minSdkVersion
         targetSdkVersion ext.targetSdkVersion
-        versionCode 18
-        versionName "1.8.4"
+        versionCode 20
+        versionName "2.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -34,6 +34,6 @@ dependencies {
     //图片加载
     compile 'com.github.bumptech.glide:glide:4.0.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
-    //compile project(':library')
-    compile 'com.github.AriesHoo:TitleBarView:1.8.4'
+    compile project(':library')
+//    compile 'com.github.AriesHoo:TitleBarView:2.0.0'
 }
