@@ -5,7 +5,7 @@
 
 一个支持Android 4.4以上版本沉浸式及半透明状态栏效果的 TitleBarView;更全常见UI库参看 [UIWidget](https://github.com/AriesHoo/UIWidget)
 
-##### 说明2.0.0以后版本UIWidget维护，不再做版本更新
+<font color=blue size=24>说明2.0.0以后版本UIWidget维护，不再做版本更新</font>
 
 #### TitleBarView是基于ViewGroup的扩展，主要具有以下特性
 
