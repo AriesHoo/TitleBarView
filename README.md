@@ -1,9 +1,9 @@
 # TitleBarView
 ----------
 [![fir.im](https://img.shields.io/badge/download-fir.im-blue.svg)](https://fir.im/pmb2)
-[![](https://jitpack.io/v/AriesHoo/TitleBarView.svg)](https://jitpack.io/#AriesHoo/TitleBarView)   
-[![](https://img.shields.io/github/release/AriesHoo/TitleBarView.svg)](https://github.com/AriesHoo/TitleBarView/releases)  
-[![API](https://img.shields.io/badge/API-11%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=11)  
+[![](https://jitpack.io/v/AriesHoo/TitleBarView.svg)](https://jitpack.io/#AriesHoo/TitleBarView)
+[![](https://img.shields.io/github/release/AriesHoo/TitleBarView.svg)](https://github.com/AriesHoo/TitleBarView/releases)
+[![API](https://img.shields.io/badge/API-11%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=11)
 [![GitHub license](https://img.shields.io/github/license/AriesHoo/TitleBarView.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 ## 简介：
 
