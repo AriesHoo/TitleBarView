@@ -6,7 +6,7 @@
 [![API](https://img.shields.io/badge/API-11%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=11)
 [![GitHub license](https://img.shields.io/github/license/AriesHoo/TitleBarView.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 [![](https://img.shields.io/badge/简书-AriesHoo-blue.svg)](http://www.jianshu.com/u/a229eee96115)
-[![](https://img.shields.io/badge/简书解析-Android自带沉浸状态栏效果标题栏控件TitleBarView-green.svg)](http://www.jianshu.com/p/34ace867b29f)
+[![](https://img.shields.io/badge/简书解析-Android自带沉浸状态栏效果标题栏控件:TitleBarView-purple.svg)](http://www.jianshu.com/p/34ace867b29f)
 <!-- [![GitHub stars](https://img.shields.io/github/stars/AriesHoo/TitleBarView.svg)](https://github.com/AriesHoo/UITitleBarViewWidget/stargazers) -->
 <!-- [![GitHub forks](https://img.shields.io/github/forks/AriesHoo/TitleBarView.svg)](https://github.com/AriesHoo/TitleBarView/network) -->
 ## 简介：
