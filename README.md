@@ -5,8 +5,10 @@
 [![](https://img.shields.io/github/release/AriesHoo/TitleBarView.svg)](https://github.com/AriesHoo/TitleBarView/releases)
 [![API](https://img.shields.io/badge/API-11%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=11)
 [![GitHub license](https://img.shields.io/github/license/AriesHoo/TitleBarView.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
-[![GitHub stars](https://img.shields.io/github/stars/AriesHoo/TitleBarView.svg)](https://github.com/AriesHoo/TitleBarView/stargazers)
-[![GitHub forks](https://img.shields.io/github/forks/AriesHoo/TitleBarView.svg)](https://github.com/AriesHoo/TitleBarView/network)
+[![](https://img.shields.io/badge/简书-AriesHoo-blue.svg)](http://www.jianshu.com/u/a229eee96115)
+[![](https://img.shields.io/badge/简书解析-Android自带沉浸状态栏效果标题栏控件-TitleBarView-green.svg)](http://www.jianshu.com/p/34ace867b29f)
+<!-- [![GitHub stars](https://img.shields.io/github/stars/AriesHoo/TitleBarView.svg)](https://github.com/AriesHoo/UITitleBarViewWidget/stargazers) -->
+<!-- [![GitHub forks](https://img.shields.io/github/forks/AriesHoo/TitleBarView.svg)](https://github.com/AriesHoo/TitleBarView/network) -->
 ## 简介：
 
 一个支持Android 4.4以上版本沉浸式及半透明状态栏效果的 TitleBarView;更全常见UI库参看 [UIWidget](https://github.com/AriesHoo/UIWidget)
