@@ -1,4 +1,4 @@
-# TitleBarView
+# TitleBarView-一个自带沉浸状态栏效果的Android自定义标题栏控件
 ----------
 [![fir.im](https://img.shields.io/badge/download-fir.im-blue.svg)](https://fir.im/pmb2)
 [![](https://jitpack.io/v/AriesHoo/TitleBarView.svg)](https://jitpack.io/#AriesHoo/TitleBarView)
@@ -35,7 +35,7 @@
 
 说明:此处沉浸式状态栏为状态栏透明化且布局延伸至状态栏下效果，非状态栏着色模式
 
-详情实现流程解析请移步:[Android自带沉浸状态栏效果标题栏控件-TitleBarView](http://www.jianshu.com/p/34ace867b29f)
+详情实现流程解析请移步:[TitleBarView-一个自带沉浸状态栏效果的Android自定义标题栏控件](http://www.jianshu.com/p/34ace867b29f)
 
 [[Sample PC Download]](https://github.com/AriesHoo/TitleBarView/blob/master/apk/sample.apk)  
 
